@@ -22,11 +22,11 @@ def make_t(df):
 
 
 def main():
-    df = pd.read_csv('data.csv')
+    df = pd.read_csv('../data/data.csv')
     df = fix_formatting(df)
     df = find_peak_gravity(df)
     df = make_t(df)
-    df.to_csv(f'processed_data_{datetime.date.today()}.csv')
+    df.to_csv(f'../data/processed_data_{datetime.date.today()}.csv')
 
 if __name__ == '__main__':
     main()

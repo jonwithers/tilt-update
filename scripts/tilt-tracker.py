@@ -8,7 +8,7 @@ url = "https://docs.google.com/spreadsheets/d/1qkTiPLBIpL05a6WS4qq1AwNmj6nPDGIAb
 r = requests.get(url)
 csv_string = r.content.decode('utf-8')
 df = pd.read_csv(StringIO(csv_string))
-df.to_csv('./data.csv', index=False)
+df.to_csv('../data/data.csv', index=False)
 starttime = '2021-07-21 20:00'
 
 df['dttm'] = pd.to_datetime(df['Timestamp'])
@@ -27,11 +27,11 @@ data1.append(go.Scatter({
 	'y':df['SG'].ewm(com=5).mean(),
 	'name':'rolling'
 }))
-plot(data1, filename='specific_gravity.html')
+plot(data1, filename='../plots/specific_gravity.html')
 
 data2 = []
 data2.append(go.Scatter({
 	'x':df['dttm'],
 	'y':df['Temp']
 }))
-plot(data2, filename='temperature.html')
+plot(data2, filename='../plots/temperature.html')
